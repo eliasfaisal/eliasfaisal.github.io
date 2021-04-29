@@ -1,0 +1,1 @@
+- unless you struggle you won't reach anything
