@@ -1,7 +1,113 @@
 <html>
-  <head>
-    <meta name="google-site-verification" content="S3G9HcQV_P_tyO2JPeMZejfuSOFxP6GvXV3bb8cc6j0" />
-  </head>
-  <h1>Hello World!</h1>
-  <a href="https://github.com/eliasfaisal/">@EliasFaisal</a>
+    <head>
+        <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1"/>
+        <meta name="google-site-verification" content="S3G9HcQV_P_tyO2JPeMZejfuSOFxP6GvXV3bb8cc6j0"/>
+        <meta property="og:title" content="Elias Faisal | Portfolio">
+        <meta property="og:url" content="https://eliasfaisal.github.io/">
+        <meta property="og:description" content="Elias Faisal's Personal Website">
+        <link rel="icon" href="icon.png"/>
+        <title>Elias Faisal</title>
+        <style>
+            @keyframes blink {
+                0% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0;
+                }
+            }
+
+            @font-face {
+                font-family: ffnntx;
+                src: url("https://fonts.gstatic.com/s/productsans/v9/pxiDypQkot1TnFhsFMOfGShVF9eO.woff2") format("woff2");
+            }
+
+            body {
+                background: #0d1117;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+
+            a::before {
+                width: 454.7px;
+                height: 121px;
+                content: '';
+                display: flex;
+                position: absolute;
+                box-shadow: 0 0 0 2px #c9d1d9;
+                transform: scale(1.1);
+                transition: 200ms ease-in-out;
+                opacity: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: #c9d1d9;
+                font-family: ffnntx;
+                height: 145px;
+                font-size: 100px;
+                text-align: center;
+                transition: 200ms ease-in-out;
+            }
+
+            a:hover::before {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+
+            a:active::before {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            .particleContainer {
+                width: -webkit-fill-available;
+                height: -webkit-fill-available;
+                position: fixed;
+            }
+
+            .particle {
+                width: 5px;
+                height: 5px;
+                background: #c9d1d98a;
+                border-radius: 60px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="particleContainer"></div>
+        <a href="https://github.com/eliasfaisal/">Elias Faisal</a>
+        <script defer>
+            function genPart(maxWidth, maxHeigt) {
+                let x = Math.random() * maxWidth;
+                let y = Math.random() * maxHeigt;
+                let z = Math.random() * 6;
+
+                let p = document.createElement("div");
+                p.classList.add("particle");
+                p.style.animation = `blink ${z}s infinite ease-in-out`;
+
+                p.style.left = `${x}px`;
+                p.style.top = `${y}px`;
+
+                return p;
+            }
+
+            function appendPart(length) {
+                for (let i = 0; i < length; i++) {
+                    document.querySelector('.particleContainer').appendChild(genPart(innerWidth, innerHeight));
+                }
+            }
+
+            onresize = ()=>{
+                document.querySelector('.particleContainer').innerHTML = '';
+                appendPart(32);
+            }
+            onresize();
+        </script>
+    </body>
 </html>
