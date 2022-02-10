@@ -70,8 +70,8 @@
             }
 
             .particle {
-                width: 5px;
-                height: 5px;
+                /*width: 5px; */
+                /*height: 5px; */
                 background: #c9d1d98a;
                 border-radius: 60px;
                 position: absolute;
@@ -83,13 +83,19 @@
         <a href="https://github.com/eliasfaisal/">Elias Faisal</a>
         <script defer>
             function genPart(maxWidth, maxHeigt) {
+                let wh = 2 + Math.random() * 4;
+
                 let x = Math.random() * maxWidth;
                 let y = Math.random() * maxHeigt;
                 let z = Math.random() * 6;
 
                 let p = document.createElement("div");
+
                 p.classList.add("particle");
                 p.style.animation = `blink ${z}s infinite ease-in-out`;
+
+                p.style.width = `${wh}px`;
+                p.style.height = `${wh}px`;
 
                 p.style.left = `${x}px`;
                 p.style.top = `${y}px`;
@@ -105,7 +111,7 @@
 
             onresize = ()=>{
                 document.querySelector('.particleContainer').innerHTML = '';
-                appendPart(32);
+                appendPart(64);
             }
             onresize();
         </script>
